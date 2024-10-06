@@ -19,7 +19,7 @@ void traverse(test* head)
     {
         printf("%d ",head->data);
         head = head->next;
-    }while(head != NULL);
+    } while(head != NULL);
     printf("\n");
 }
 
@@ -76,6 +76,14 @@ test* reverse(test* head)
         return head;
     }
 
+    /*
+    1->0->0->NULL
+    next      0->0->NULL, 0->NULL, NULL
+    cur->next NULL, 1->NULL, 0->1->NULL
+    prev      1->NULL, 0->1->NULL, 0->0->1->NULL
+    cur       0->0->NULL, 0->NULL, NULL
+    0->0->1->NULL
+    */
     test *cur = head;
     test *prev = NULL;
     test *next = NULL;
@@ -104,7 +112,7 @@ test* remove_node(test* head, int index)
         printf("Invalid index passed\n");
         return head;
     }
-    // test* temp = head;
+
     test* temp = head;
     test* cur = head; 
     test* prev = NULL;
@@ -133,12 +141,6 @@ test* remove_node(test* head, int index)
     free(cur);
     return head;
 }
-// ptr;
-// ptr -> cap
-// malloc(10)
-// malloc(4)
-// free(ptr1)
-// malloc(20)
 
 void decToBinary(int n)
 {
@@ -175,7 +177,6 @@ void assign(int **arr, int size)
 
 int main()
 {
-    //5
     // int a[5] = {1,2,3,4,5};
     // int *ptr = (int*)(&a+1);
     // printf("%p %p %p\n", a, &a+2, ptr);
@@ -185,7 +186,7 @@ int main()
     b = -2 %5;
     c= 2%-5;
     d = -2%-5;
-    printf("%d %d %d %d\n",a,b,c,d);
+    printf("%d %d %d %d\n",a,b,c,d); // 2 -2 2 -2
     int mat1[2][2] = {{1, 2},
                 {3, 4}};
     int mat2[2][2] = {{5, 6},
